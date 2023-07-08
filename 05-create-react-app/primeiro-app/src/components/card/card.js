@@ -3,12 +3,16 @@ import './card.css'
 
 // Passando propriedades através de um componente de função:
 
-const Card = (props) => {
+const Card = ({ children, color, showCardColor}) => {
     return(
-            <div className="card">
-                { props.children }
+            <div className="card" style={ { backgroundColor: color } } onClick={ () => showCardColor(color) }> 
+                { children }
             </div>
     )
+}
+
+Card.defaultProps = {
+    color: 'blueviolet'
 }
 
 // Passando propriedades através de um componente de classe: 
